@@ -1,0 +1,38 @@
+{
+  "name": "auth-jwt-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eder Sosa <eder.sohe@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.9.4",
+    "good": "^5.1.1",
+    "good-console": "^4.1.0",
+    "good-influxdb": "^2.1.0",
+    "hapi": "^8.2.0",
+    "hapi-auth-jwt": "^2.0.0",
+    "hapi-swagger": "^0.6.4",
+    "joi": "^5.1.0",
+    "node-uuid": "^1.4.2",
+    "swagger-tools": "^0.8.3",
+    "underscore": "^1.7.0",
+    "underscore.string": "^3.0.2"
+  },
+  "devDependencies": {
+    "aglio": "^1.17.1",
+    "blanket": "^1.1.6",
+    "chai": "^2.0.0",
+    "dredd": "^0.4.5",
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0",
+    "gulp-nodemon": "^1.0.5",
+    "gulp-shell": "^0.3.0",
+    "mocha": "^2.1.0",
+    "node-inspector": "^0.8.3",
+    "swagger-tools": "^0.8.2"
+  }
+}
