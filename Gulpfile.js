@@ -1,4 +1,3 @@
-// Gulpfile.js
 var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var jshint = require('gulp-jshint');
@@ -13,7 +12,7 @@ gulp.task('lint', function () {
 gulp.task('typecheck', function () {
   gulp.src('./**/*.js')
     .pipe(flow({
-        all: false,
+        all: true,
         weak: false,
         declarations: './declarations',
         killFlow: false,

@@ -1,5 +1,5 @@
-users = require('../controllers/users')
-Joi = require('joi')
+users = require('../controllers/users');
+Joi = require('joi');
 
 module.exports = [
   {
@@ -19,4 +19,4 @@ module.exports = [
       }
     }
   }
-]
+];
