@@ -4,7 +4,7 @@ if (process.env.NODE_ENV == 'production' && process.env.SWAGGER_URI){
   uri = process.env.SWAGGER_URI;
 }
 
-pluginConfig = {
+var pluginConfig = {
   register: require('hapi-swagger'),
   options: {
       basePath: uri,

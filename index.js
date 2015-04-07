@@ -17,13 +17,7 @@ server.register(require('./plugins/good'), function(err){
 });
 
 require('./plugins/swagger')(server);
-
-server.register(Tv, function (err) {
-    if (!err) {
-      server.log(['error', 'plugin'], 'Load plugin: TV');
-      server.start();
-    }
-});
+require('./plugins/tv')(server);
 
 // server.route(require('./routes/users')[0]);
 
