@@ -16,14 +16,7 @@ server.register(require('./plugins/good'), function(err){
   }
 });
 
-server.register(require('./plugins/swagger'), function(err){
-    if(err){
-      server.log(['error', 'plugin'], 'Load plugin: Swagger');
-    }
-    else{
-      server.log(['info', 'plugin'], 'Loaded plugin: Swagger');
-    }
-});
+require('./plugins/swagger')(server);
 
 server.register(Tv, function (err) {
     if (!err) {
