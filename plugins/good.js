@@ -1,7 +1,7 @@
 var reporter = {
   reporter: require('good-console'),
   args:[{ log: '*', response: '*' , request: '*', error: '*'}]
-}
+};
 
 if (process.env.NODE_ENV == 'production' && process.env.INFLUXDB_URI){
   var parse = require('url').parse;
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV == 'production' && process.env.INFLUXDB_URI){
         password: auth[1]
       }
     ]
-  }
+  };
 }
 
 module.exports = {
