@@ -1,13 +1,9 @@
-var uri = 'http://localhost:' + (process.env.PORT || 3000);
-
-if (process.env.NODE_ENV == 'production' && process.env.SWAGGER_URI){
-  uri = process.env.SWAGGER_URI;
-}
+var config = require('../config');
 
 var pluginConfig = {
   register: require('hapi-swagger'),
   options: {
-      basePath: uri,
+      basePath: config.SWAGGER_URI,
       apiVersion: require('../package').version
   }
 };

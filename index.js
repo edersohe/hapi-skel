@@ -2,20 +2,13 @@ var Hapi = require('hapi');
 var Joi = require('joi');
 var Tv = require('tv');
 var Boom = require('boom');
+var config = require('./config');
 
 var server = new Hapi.Server();
 
-server.connection({ port: 3000 });
+server.connection({ port: config.PORT });
 
-server.register(require('./plugins/good'), function(err){
-  if(err){
-    server.log(['error', 'plugin'], 'Load plugin: Good');
-  }
-  else{
-    server.log(['info', 'plugin'], 'Loaded plugin: Good');
-  }
-});
-
+require('./plugins/good')(server);
 require('./plugins/swagger')(server);
 require('./plugins/tv')(server);
 
@@ -25,13 +18,12 @@ server.route({
   method: 'GET',
   path: '/auth',
   handler: function(request, reply){
-    console.log(request);
+    request.log(request);
     reply(Boom.unauthorized());
   }
 });
 
 server.start(function () {
-  var env = process.env.NODE_ENV || 'development';
-  server.log(['info', 'server'], 'Server environment: ' + env);
+  server.log(['info', 'server'], 'Server environment: ' + config.NODE_ENV);
   server.log(['info', 'server'], 'Server running at: ' + server.info.uri);
 });

@@ -1,8 +1,10 @@
-var Tv = require('tv');
-var pluginConfig = {};
+var pluginConfig = {
+  register: require('tv'),
+  options: {}
+};
 
 module.exports = function(server) {
-  server.register({register: Tv, options: pluginConfig}, function(err){
+  server.register(pluginConfig, function(err){
       if(err){
         server.log(['error', 'plugin'], 'Load plugin: Tv');
       }

@@ -1,31 +1,57 @@
-var reporter = {
-  reporter: require('good-console'),
-  args:[{ log: '*', response: '*' , request: '*', error: '*'}]
+var config = require('../config');
+
+var reporters = [];
+
+var events = function (strEvents) {
+  return strEvents.split(',').reduce(function(p, c, i){
+    p[c] = '*';
+    return p;
+  }, {});
 };
 
-if (process.env.NODE_ENV == 'production' && process.env.INFLUXDB_URI){
+if (config.GOOD_CONSOLE){
+  var reporter = {
+    reporter: require('good-console'),
+    args:[events(config.GOOD_CONSOLE)]
+  };
+
+  reporters.push(reporter);
+}
+
+if (config.GOOD_INFLUXDB && config.INFLUXDB_URI){
   var parse = require('url').parse;
-  var uri = parse(process.env.INFLUXDB_URI);
+  var uri = parse(config.INFLUXDB_URI);
   var auth = uri.auth.split(':');
 
-  reporter = {
+  var reporter = {
     reporter: require('good-influxdb'),
     args:[
       uri.protocol + '//' + uri.host,{
-        events: {
-          log: '*', response: '*' , ops: '*', request: '*', error: '*'
-        },
+        events: events(config.GOOD_INFLUXDB),
         database: uri.pathname,
         username: auth[0],
         password: auth[1]
       }
     ]
   };
+
+  reporters.push(reporter);
 }
 
-module.exports = {
+pluginConfig = {
   register: require('good'),
   options: {
-    reporters: [reporter]
+    reporters: reporters
   }
+};
+
+module.exports = function(server) {
+  server.register(pluginConfig, function(err){
+      if(err){
+        server.log(['error', 'plugin'], 'Load plugin: Good');
+      }
+      else{
+        server.log(['info', 'plugin'], 'Loaded plugin: Good');
+      }
+  });
 };
