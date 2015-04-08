@@ -1,6 +1,7 @@
 var config = require('../config');
 
 var reporters = [];
+var names = [];
 
 var events = function (strEvents) {
   return strEvents.split(',').reduce(function(p, c, i){
@@ -18,6 +19,7 @@ if (config.GOOD_CONSOLE){
   };
 
   reporters.push(reporter);
+  names.push('console');
 }
 
 if (config.GOOD_INFLUXDB && config.INFLUXDB_URI){
@@ -38,6 +40,7 @@ if (config.GOOD_INFLUXDB && config.INFLUXDB_URI){
   };
 
   reporters.push(reporter);
+  names.push('influxdb');
 }
 
 pluginConfig = {
@@ -50,10 +53,10 @@ pluginConfig = {
 module.exports = function(server) {
   server.register(pluginConfig, function(err){
       if(err){
-        server.log(['error', 'plugin'], 'Load plugin: Good');
+        server.log(['error', 'plugin'], 'Load plugin: Good[' + names + ']');
       }
       else{
-        server.log(['info', 'plugin'], 'Loaded plugin: Good');
+        server.log(['info', 'plugin'], 'Loaded plugin: Good[' + names + ']');
       }
   });
 };
