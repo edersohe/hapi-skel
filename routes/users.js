@@ -1,5 +1,6 @@
-users = require('../controllers/users');
-Joi = require('joi');
+var users = require('../controllers/users');
+var Joi = require('joi');
+var Boom = require('boom');
 
 module.exports = [
   {
@@ -17,6 +18,14 @@ module.exports = [
           .description('the id for the todo item'),
         }
       }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/auth',
+    handler: function(request, reply){
+      request.log(request);
+      reply(Boom.unauthorized());
     }
   }
 ];
