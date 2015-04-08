@@ -24,7 +24,6 @@
   "devDependencies": {
     "code": "^1.4.0",
     "gulp": "^3.8.11",
-    "gulp-flowtype": "^0.4.5",
     "gulp-jshint": "^1.10.0",
     "gulp-nodemon": "^2.0.2",
     "gulp-shell": "^0.4.0",

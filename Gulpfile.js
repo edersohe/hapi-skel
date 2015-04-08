@@ -9,25 +9,13 @@ gulp.task('lint', function () {
     .pipe(jshint());
 });
 
-gulp.task('typecheck', function () {
-  gulp.src('./**/*.js')
-    .pipe(flow({
-        all: true,
-        weak: false,
-        declarations: './declarations',
-        killFlow: false,
-        beep: true,
-        abort: false
-    }));
-});
-
 gulp.task('outdated', shell.task([
   'npm outdated --depth 0'
 ]));
 
-gulp.task('default', ['outdated', 'lint', 'typecheck'], function () {
+gulp.task('default', ['outdated', 'lint'], function () {
   nodemon({ script: 'index.js', ext: 'html js'})
-    .on('change', ['outdated','lint', 'typecheck'])
+    .on('change', ['outdated','lint'])
     .on('restart', function () {
       console.log('restarted!');
     });
