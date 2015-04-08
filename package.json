@@ -15,7 +15,7 @@
     "good-console": "^4.1.0",
     "good-influxdb": "^2.1.0",
     "hapi": "^8.4.0",
-    "hapi-swagger": "^0.7.1",
+    "hapi-swagger": "^0.7.2",
     "tv": "^4.1.0",
     "joi": "^6.1.0",
     "underscore": "^1.8.3",

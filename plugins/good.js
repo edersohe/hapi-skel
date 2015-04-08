@@ -9,6 +9,8 @@ var events = function (strEvents) {
   }, {});
 };
 
+//TODO: update new plugin good and good console when compatibility with influxdb is done
+
 if (config.GOOD_CONSOLE){
   var reporter = {
     reporter: require('good-console'),
