@@ -4,6 +4,7 @@
   "description": "Micro app Hapi.js",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/pm2 start index.js -i 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eder Sosa <eder.sohe@gmail.com>",
@@ -16,8 +17,9 @@
     "good-influxdb": "^2.1.0",
     "hapi": "^8.4.0",
     "hapi-swagger": "^0.7.2",
-    "tv": "^4.1.0",
     "joi": "^6.1.0",
+    "pm2": "^0.12.10",
+    "tv": "^4.1.0",
     "underscore": "^1.8.3",
     "underscore.string": "^3.0.3"
   },
