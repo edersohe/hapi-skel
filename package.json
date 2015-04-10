@@ -1,7 +1,7 @@
 {
-  "name": "mApp",
-  "version": "0.0.0",
-  "description": "Micro app Hapi.js",
+  "name": "hapi-skel",
+  "version": "0.0.1",
+  "description": "hapi.js application skeleton",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/pm2 start index.js -i 0",
