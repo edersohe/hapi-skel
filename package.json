@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/pm2 start index.js -i 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lab -C -c -m 15000",
+    "test:coverage": "rm coverage.html && lab -C -c -m 15000 -r html -o coverage.html",
+    "deps": "npm list --depth 0",
+    "deps:outdated": "npm outdated --depth 0",
+    "lint": "./node_modules/.bin/jshint"
   },
   "author": "Eder Sosa <eder.sohe@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.9.24",
     "boom": "^2.7.0",
     "good": "^6.0.0",
     "good-console": "^5.0.0",
-    "good-influxdb": "^2.1.0",
     "hapi": "^8.4.0",
     "hapi-swagger": "^0.7.2",
     "joi": "^6.1.0",
@@ -25,10 +27,7 @@
   },
   "devDependencies": {
     "code": "^1.4.0",
-    "gulp": "^3.8.11",
-    "gulp-jshint": "^1.10.0",
-    "gulp-nodemon": "^2.0.2",
-    "gulp-shell": "^0.4.0",
+    "jshint": "^2.6.3",
     "lab": "^5.5.1",
     "node-inspector": "^0.9.2",
     "swagger-tools": "^0.8.5"
