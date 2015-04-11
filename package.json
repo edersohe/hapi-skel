@@ -12,8 +12,8 @@
   "dependencies": {
     "bluebird": "^2.9.24",
     "boom": "^2.7.0",
-    "good": "^5.1.2",
-    "good-console": "^4.1.0",
+    "good": "^6.0.0",
+    "good-console": "^5.0.0",
     "good-influxdb": "^2.1.0",
     "hapi": "^8.4.0",
     "hapi-swagger": "^0.7.2",
